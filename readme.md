@@ -9,7 +9,7 @@
 </p>
 
 ## USA HQ Wireless
-https://user-images.githubusercontent.com/54704888/159662142-7851a6d0-626b-4ee6-8fb4-104989ad1d8d.PNG
+![usahq](https://user-images.githubusercontent.com/54704888/159663744-188d1e84-4460-4978-98f6-9c01662aa70a.PNG)
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
