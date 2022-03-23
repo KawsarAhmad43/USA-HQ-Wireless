@@ -1,0 +1,23 @@
+#disable directory browsing
+Options -Indexes
+
+#PROTECT ENV FILE
+<Files .env>
+order allow,deny
+Deny from all
+</Files>
+
+#PROTECT ENV FILE
+<Files .htaccess>
+order allow,deny
+Deny from all
+</Files>
+
+# Header set Content-Security-Policy "upgrade-insecure-requests" env=HTTPS
+# Header add Content-Security-Policy: default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+Header set Content-Security-Policy "upgrade-insecure-requests" env=HTTPS
