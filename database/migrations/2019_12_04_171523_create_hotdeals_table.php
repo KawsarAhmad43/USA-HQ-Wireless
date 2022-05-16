@@ -16,10 +16,12 @@ class CreateHotdealsTable extends Migration
         Schema::create('hotdeals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('product_id')->unsigned();
+            $table->string('name');
             $table->integer('sts');
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('name')->references('name')->on('products');
         });
     }
 

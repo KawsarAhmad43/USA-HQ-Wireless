@@ -90,6 +90,69 @@
         </p>
       </a>
     </li>
+
+    {{-- featured card --}}
+
+    <li class="nav-item has-treeview">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-square"></i>
+        <p>
+          Featured Card
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{ url('/admin/featuredcard') }}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Add New</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ url('/admin/featuredcard') }}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>View Featured Cards</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    {{--  --}}
+
+
+
+    {{-- costomer --}}
+    <li class="nav-item has-treeview">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-user"></i>
+        <p>
+         Customers
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{ route('customer.view') }}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>View</p>
+          </a>
+        </li>
+        {{-- <li class="nav-item">
+          <a href="{{ url('/admin/featuredcard') }}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>View Featured Cards</p>
+          </a>
+        </li> --}}
+      </ul>
+    </li>
+
+
+
+    {{-- customer end --}}
+
+
+
+
     {{-- <li class="nav-item has-treeview">
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-th"></i>

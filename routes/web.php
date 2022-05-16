@@ -19,7 +19,15 @@ Auth::routes([
   'verify' => false, // Email Verification Routes...
 ]);
 
-//Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/registration', 'HomeController@index')->name('registration');
+Route::get('/customer/registration', 'CustomerRegController@regi')->name('customer.reg');
+Route::post('/customer/store', 'CustomerRegController@store')->name('customer.store');
+Route::get('/customer/login', 'CustomerUserController@login')->name('customer.login');
+Route::post('/customer/login/auth', 'CustomerUserController@customerlogin')->name('customerlogin.auth');
+// backend customer
+Route::get('/customer/view', 'CustomerRegController@customerview')->name('customer.view');
+
+// end
 
 Route::get('/', 'FrontProductsController@index')->name('/');
 Route::get('/hotdeals', 'FrontProductsController@hotdeals');
@@ -56,6 +64,30 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
   Route::put('/admin/category/edit', 'BackCategoriesController@update');
   Route::put('/admin/category/editsub', 'BackCategoriesController@updatesub');
+
+  // 
+
+  Route::get('/checkout', 'TestController@checkout')->name('checkout');
+
+
+ // featured Route Route...
+ Route::get('/admin/featuredcard', 'FeaturedCardController@index')->name('featured');
+  Route::get('/admin/featuredcard/store', 'FeaturedCardController@store')->name('featuredstore');
+ 
+  Route::get('/admin/featuredcard/edit/{id}', 'FeaturedCardController@edit')->name('featurededit');
+  
+  Route::get('/admin/featuredcard/update', 'FeaturedCardController@update')->name('featuredupdate');
+  
+  Route::get('/admin/featuredcard/delete/{id}', 'FeaturedCardController@destroy')->name('featureddestroy');
+
+
+  // 
+
+
+  // registration
+  Route::get('/registration', 'FeaturedCardController@index')->name('registration');
+
+  // 
 
   Route::get('/admin/product/add', 'BackProductsController@create');
   Route::get('/admin/product/edit/{id}', 'BackProductsController@edit');
@@ -103,6 +135,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 // Route::get('password', function () {
 //   return bcrypt('');
 // });
+
+
+Route::post('/transaction', 'PaymentController@makePayment')->name('make-payment');
+
 
 
 Route::get('/cache-destroy', function() {

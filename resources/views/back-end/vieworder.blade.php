@@ -30,6 +30,11 @@ View Order
                   <b>Customer Info</b>
                   <address>
                     <strong>{{$order->customer_name}}</strong><br>
+                    {{-- <strong>{{$order->company_name}}</strong><br>
+                    Street: {{ $order->strline }}<br>
+                    Post Code: {{ $order->postcode }}<br>
+                    State: {{ $order->state }}<br>
+                    Country: {{ $order->country }}<br> --}}
                       Phone: {{ $order->customer_phone }}<br>
                     @if($order->customer_email)
                       Email: {{ $order->customer_email }}<br>
@@ -41,7 +46,7 @@ View Order
                 <div class="col-sm-4 invoice-col">
                   <br>
                   <b>Order ID:</b> {{$order->tracking_no}}<br>
-                  <b>Payment:</b> Chash on Delivery<br>
+                  <b>Payment:</b> {{$order->paymeth}}<br>
                   <b>Status:</b> @if($order->status == 'Pending') <span style="color:red;">Order {{$order->status}}</span> @else <span style="color:green;">Order {{$order->status}}</span> @endif<br>
                 </div>
                 <!-- /.col -->

@@ -13,6 +13,7 @@ use App\User;
 use App\Notifysetting;
 use App\Setting\App;
 use Cart;
+
 use Mail;
 
 class AllOrdersController extends Controller
@@ -71,15 +72,116 @@ class AllOrdersController extends Controller
     ]);
   }
 
+
+
+
+  
   public function ordersubmit(Request $request)
   {
+    $cashcom="COD";
+    $stripecom="online_payment";
     request()->validate([
       'customer_name' => 'required|min:3',
       'customer_mobile' => 'required',
       'customer_email' => 'sometimes|nullable|email',
       'customer_area' => 'required',
+      'paymeth' => 'required',
       'customer_address' => 'required'
     ]);
+    if($request->paymeth==$cashcom){
+
+      
+    $order_date = date('Y-m-d');
+    $status = 'Pending';
+
+    $order = new Order();
+
+    $order->order_date = $order_date;
+    $order->customer_name = $request->customer_name;
+    $order->lname = $request->lname;
+// 
+    $order->company = $request->company;
+    $order->strline = $request->strline;
+    $order->postcode = $request->postcode;
+    $order->addoptional = $request->addoptional;
+    $order->state = $request->state;
+    $order->city = $request->city;
+    $order->country = $request->country;
+  // 
+    $order->customer_phone = $request->customer_phone;
+    $order->customer_email = $request->customer_email;
+    $order->customer_area = $request->customer_area;
+    $order->paymeth = $request->paymeth;
+    $order->subtotal_cost = $request->subTotal;
+    $order->deliver_cost = $request->delivery;
+    $order->total_cost = $request->totalCost;
+    $order->delivery_address = $request->customer_address;
+    $order->delivery_status = $status;
+    $order->status = $status;
+
+    $order->save();
+
+    $order_id = $order->id;
+    $tracking_no = $order_id . rand(10000, 99999);
+
+    $update_order = Order::find($order_id);
+    $update_order->tracking_no = $tracking_no;
+
+    $update_order->save();
+
+    $products = $request->products;
+    $qty = $request->qty;
+    $price = $request->price;
+    $total = $request->total;
+
+    $total_product = count($products);
+
+    $sl = 1;
+    for ($i = 0; $i < $total_product; $i++) {
+      $order_details = new OrderDetail();
+
+      $order_details->order_id = $order_id;
+      $order_details->product_id = $products[$i];
+      $order_details->product_qty = $qty[$i];
+      $order_details->product_price = $price[$i];
+      $order_details->total_price = $total[$i];
+      $order_details->sts = 1;
+
+      $order_details->save();
+
+      $sl++;
+    }
+
+    $order = $update_order;
+
+    $admin = Notifysetting::latest()->first();
+
+    if ($admin->notify_admin == 1 && $admin->admin_mail != null) {
+      Notification::route('mail', $admin->admin_mail)->notify(new  NewOrderAdmin($order));
+    }
+    if ($admin->notify_customer == 1 && $request->customer_email != null) {
+      Notification::route('mail', $request->customer_email)->notify(new  NewOrderCustomer($order));
+    }
+
+    return redirect()->route('confirm', $order_id)->with('msg', 'Thank you! Your order has been received.');
+
+// 
+    }
+    else{
+
+      session()->put('request',$request->all());
+      $data=session()->get('request');
+
+
+
+        return view('payment');
+
+
+
+    }
+
+
+
 
     $order_date = date('Y-m-d');
     $status = 'Pending';
@@ -88,7 +190,14 @@ class AllOrdersController extends Controller
 
     $order->order_date = $order_date;
     $order->customer_name = $request->customer_name;
-    $order->customer_phone = $request->customer_mobile;
+
+    // $order->company_name = $request->company_name;
+    // $order->strline = $request->strline;
+    // $order->postcode = $request->postcode;
+    // $order->state = $request->state;
+    // $order->country = $request->country;
+  
+    $order->customer_phone = $request->customer_phone;
     $order->customer_email = $request->customer_email;
     $order->customer_area = $request->customer_area;
     $order->subtotal_cost = $request->subTotal;

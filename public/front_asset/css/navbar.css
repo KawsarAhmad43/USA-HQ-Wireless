@@ -1,0 +1,242 @@
+@charset "UTF-8";
+
+/*=================================================================*/
+/*                      BASE                              
+/*=================================================================*/
+@import "reset.css";
+
+/* body {
+  overflow-x: hidden;
+  margin: 0;
+  background-color: #fff;
+  color: #777;
+  text-rendering: optimizeLegibility;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+} */
+/* .container {
+  max-width: 76.375rem;
+  width: 100%; 
+  width: calc(
+    100% - 1rem
+  ); 
+  padding: 0 1.5rem;
+  margin: 0 auto;
+} */
+
+/*=================================================================*/
+/*                      Header                              
+/*=================================================================*/
+
+.headerWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+@media (min-width: 1025px) {
+  .headerWrapper {
+    height: 105px;
+    max-height: 105px;
+  }
+}
+@media (max-width: 1024px) {
+  .headerWrapper {
+    height: 60px;
+    max-height: 60px;
+  }
+}
+
+.headerItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-height: inherit;
+}
+
+.headerLeft,
+.headerMobileLeft {
+  justify-content: flex-start;
+  margin-left: -10px;
+}
+.headerCenter {
+  flex: 1 1 0%;
+}
+.headerRight,
+.headerMobileRight {
+  justify-content: flex-end;
+  margin-left: -10px;
+}
+
+.headerLogo {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.logoLink img {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transform: translateZ(0);
+  max-height: inherit;
+  perspective: 800px;
+}
+.searchForm {
+  padding-right: 10px;
+  padding-left: 10px;
+  flex: 1 1 auto;
+}
+.seachform {
+  position: relative;
+  color: #777;
+  /* border: 1px solid #0000001a; */
+}
+
+.searchFormInput {
+  padding: 0 15px;
+  max-width: 100%;
+  min-width: 290px;
+  width: 100%;
+  height: 46px;
+  border: 2px solid #0000001a;
+  border-radius: 35px;
+  color: #777;
+  background-color: #0000;
+  font-size: 15px;
+  box-shadow: none;
+  transition: border-color 0.5s ease;
+  vertical-align: middle;
+  margin: 0;
+  outline: none;
+}
+@media (min-width: 769px) {
+  .searchFormInput {
+    padding-right: 230px;
+  }
+}
+
+.seachByCategory {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 2px;
+  right: 52px;
+  bottom: 2px;
+}
+.seachByCategory > a {
+  display: flex;
+  align-items: center;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 172px;
+  height: 100%;
+  border-right: 1px solid #0000001a;
+  border-left: 1px solid #0000001a;
+  color: #777;
+  text-transform: uppercase;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.seachByCategory > a > span {
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.seachSubmit {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 2px;
+  padding: 0;
+  width: 50px;
+  border: none;
+  background-color: #0000;
+  box-shadow: none;
+  color: #777;
+  font-weight: 400;
+  font-size: 0;
+  line-height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border-radius: 0;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.seachSubmit i {
+  font-size: 20px;
+  color: #777;
+}
+@media (max-width: 1024px) {
+  .headerRight {
+    display: none;
+  }
+}
+.headerRight .headerRightElement {
+  position: relative;
+  color: #333;
+}
+.headerRight .headerRightElement:hover {
+  color: #3339;
+}
+
+.headerRightElement > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  color: #333;
+  line-height: 1;
+  padding-right: 10px;
+  padding-left: 10px;
+  text-decoration: none;
+}
+.headerRightAcccount .accountIcon,
+.headerRightWishlist .accountText,
+.headerRightCompare .accountText {
+  display: none;
+}
+.headerRightElement .accountIcon {
+  position: relative;
+  font-size: 0;
+  font-size: 18px;
+}
+.headerRightElement .accountText {
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 13px;
+}
+.headerRightAcccount .accountText {
+  margin-left: 0;
+}
+
+/* Header Mobile */
+.headerWrapper .headerMobileLeft,
+.headerWrapper .headerMobileRight {
+  flex: 1 1 0%;
+}
+@media (min-width: 1025px) {
+  .headerHiddenLG {
+    display: none;
+  }
+}
+@media (max-width: 1025px) {
+  .headerHiddenSM {
+    display: none;
+  }
+}
+
+.headerItem .menuText {
+  margin-left: 8px;
+}
+

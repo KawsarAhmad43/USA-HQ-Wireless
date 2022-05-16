@@ -24,9 +24,18 @@ Pending Orders
                         <th style="width:50px;">SL#</th>
                         <th style="width:65px;">Order Date</th>
                         <th>Customer Name</th>
+
+                        {{-- <th>Company Name</th>
+                        <th>Street Line</th>
+                        <th>Postal Code</th>
+                        <th>State</th>
+                        <th>Country</th> --}}
+
+
                         <th>Phone</th>
                         <th>Address</th>
                         <th>Delivery Cost</th>
+                        <th>Payment Method</th>
                         <th>Total Amount</th>
                         <th>Status</th>
                         <th>Delivery Status</th>
@@ -42,6 +51,7 @@ Pending Orders
                         <th>Phone</th>
                         <th>Address</th>
                         <th>Delivery Cost</th>
+                        <th>Payment Method</th>
                         <th>Total Amount</th>
                         <th>Status</th>
                         <th>Delivery Status</th>
@@ -119,6 +129,7 @@ $("#orders").DataTable({
       data: 'customer_name',
       name: 'customer_name'
     },
+
     {
       data: 'customer_phone',
       name: 'customer_phone'
@@ -130,6 +141,10 @@ $("#orders").DataTable({
     {
       data: 'deliver_cost',
       name: 'deliver_cost'
+    },
+    {
+      data: 'paymeth',
+      name: 'paymeth'
     },
     {
       data: 'total_cost',

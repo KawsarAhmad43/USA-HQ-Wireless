@@ -1,7 +1,7 @@
 .footer-clean {
     padding:50px 0;
-    background-color:#0b061d;
-    color:#bbbbbb;
+    background-color:#171a21;
+    color:#aeb3b2;
     margin-bottom: 0px;
     
   }
@@ -12,12 +12,12 @@
   }
   .quicklink a{
     line-height: 1;
-    color:#bbbbbb;
+    color:#aeb3b2;
     text-decoration: none;
   }
 
   .quicklink a:hover{
-    color:#bbbbbb;
+    color:#aeb3b2;
     text-decoration: none;
   }
   

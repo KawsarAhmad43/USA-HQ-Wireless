@@ -17,13 +17,98 @@
     <meta property="og:description"
         content="{{\App\Setting\App::description}}" />
     <link rel="shortcut icon" href="{{ asset('/image/manufacturer_logo/') }}/{{\App\Setting\App::favicon}}" type="image/x-icon">  
-    <link rel="stylesheet" href="{{ asset('/') }}front_asset/style.css">
-    <link rel="stylesheet" href="{{ asset('/') }}front_asset/responsive.css">
-    <link rel="stylesheet" href="{{ asset('/') }}front_asset/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('/') }}front_asset/css/normalize.css">
-    <link rel="stylesheet" href="{{ asset('/') }}front_asset/css/footer.css">
+   
+        
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/preloader.css">
+        
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/bootstrap.css">
+        
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/meanmenu.css">
+       
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/animate.css">
+        
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/owl-carousel.css">
+      
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/swiper-bundle.css">
+        
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/backtotop.css">
+       
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/magnific-popup.css">
+       
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/nice-select.css">
+        
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/flaticon.css">
+        
+        
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/font-awesome-pro.css">
+        
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/default.css">
+        
+        <link rel="stylesheet" href="{{ asset('/') }}front_asset/new/css/style.css">
+
+
+
+
+        <script src="{{ asset('/') }}front_asset/new/js/vendor/jquery.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/vendor/waypoints.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/owl-carousel.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/bootstrap-bundle.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/meanmenu.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/swiper-bundle.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/tweenmax.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/magnific-popup.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/parallax.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/backtotop.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/nice-select.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/nice-select.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/countdown.min.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/counterup.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/wow.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/wow.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/isotope-pkgd.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/imagesloaded-pkgd.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/ajax-form.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/main.js"></script>
+
+
+
+    <!-- JS here -->
+
+
+
+
+        {{-- fonts --}}
+
+
+    {{-- <link rel="stylesheet" href="{{ asset('/') }}front_asset/css/css/glide.core.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}front_asset/css/css/style.css">
+    <link rel="stylesheet" href="{{ asset('/') }}front_asset/css/css/reset.css">
+    <link rel="stylesheet" href="{{ asset('/') }}front_asset/css/css/reset.css"> --}}
+    
+    
     {{-- font awesome --}}
-    <script src="https://kit.fontawesome.com/8ceebf3f77.js" crossorigin="anonymous"></script>
+   <!-- Poppins Google Font -->
+   <link rel="preconnect" href="https://fonts.gstatic.com" />
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+
+   <!-- Font Awesome CDN -->
+   <script src="https://kit.fontawesome.com/8ceebf3f77.js" crossorigin="anonymous"></script>
+
+   <!-- GlideJS CSS -->
+   <link rel="stylesheet" href="assets/css/glide.core.min.css">
+
+   <!-- Animate CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+   <!-- STYLESHEETS -->
+   
+   
+
+   <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+       <![endif]-->
+    
 
     <link rel="stylesheet" href="{{ asset('/') }}slider-asset/css/owl.carousel.min.css">
 

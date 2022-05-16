@@ -85,7 +85,7 @@ Order History
                                         </tr>
                                         <tr>
                                             <td style="padding:10px !important;text-align:left;font-size:16px;font-weight:bold"> Payment Method</td>
-                                            <td style="padding:10px !important;text-align:left;font-size:16px;font-weight:bold"> Cash On Delivery </td>
+                                            <td style="padding:10px !important;text-align:left;font-size:16px;font-weight:bold"> {{$order_details->paymeth}}</td>
                                         </tr>
                                 </tbody>
                             </table>

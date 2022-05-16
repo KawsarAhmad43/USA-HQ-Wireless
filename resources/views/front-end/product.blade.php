@@ -6,289 +6,590 @@
 
 @section('content')
 
-<section class="best_seller_product" style="background-color: #fff;padding-bottom: 10px" id="main_content_area">
-  <style>
-    #ListStyle1 li{
-       list-style-type: none !important;
-    background: url(../../image/right-arrow.png) no-repeat;
-    padding-left: 25px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    }
-    #ListStyle2 li{
-        list-style-type: none !important;
-    background: url(../../image/right-arrow.png) no-repeat;
-    padding-left: 25px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    }
-    .slider{
-        width: auto;
-        margin: auto;
-    }
-    .product {
-        /*border: 1px solid #ddd;*/
-    }
-    .owl-nav {
-        position: absolute;
-        top: 39%;
-        height: 0;
-        font-size: 29px;
-        width: 100%;
-    }
-
-    .owl-next{
-        position: absolute;
-        right: 0
-    }
-    .owl-prev {
-     float: left;
-     /*margin-left: -25px !important;*/
-    }
 
 
-</style>
- <link rel="stylesheet" href="{{ asset('/') }}slider-asset/css/owl.carousel.min.css">
- <link rel="stylesheet" href="{{ asset('/') }}slider-asset/css/owl.theme.default.min.css">
-<div class="container" style="padding-right:0px">
-    <div class="row">
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mobile-padding-left-15px">
-            <div class="panel panel-info ">
-
-                <div class="panel-body mobile-padding-zero" style="padding:15px 0 ">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12 details_whole" style="padding-left: 0px">
-
-                                <div class="tab-design-product mobile-padding-zero mobile-padding-10px col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding-left: 0;">
-
-                                    <div class="slider">
-                                      <ul class="product-category owl-carousel owl-theme nav owl-loaded owl-drag">
-                                        @if($product->img1)
-                                        <li class="product">
-                                            <a href="#">
-                                                <img src="{{ asset('/') }}image/product_image/{{ $product->img1 }}" alt="{{ $product->title }}">
-                                            </a>
-                                        </li>
-                                        @endif
-                                        @if($product->img2)
-                                        <li class="product">
-                                            <a href="#">
-                                                <img src="{{ asset('/') }}image/product_image/{{ $product->img2 }}" alt="{{ $product->title }}">
-                                            </a>
-                                        </li>
-                                        @endif
-                                        @if($product->img3)
-                                        <li class="product">
-                                            <a href="#">
-                                                <img src="{{ asset('/') }}image/product_image/{{ $product->img3 }}" alt="{{ $product->title }}">
-                                            </a>
-                                        </li>
-                                        @endif
-                                        @if($product->img4)
-                                        <li class="product">
-                                            <a href="#">
-                                                <img src="{{ asset('/') }}image/product_image/{{ $product->img4 }}" alt="{{ $product->title }}">
-                                            </a>
-                                        </li>
-                                        @endif
-                                      </ul>
-                                    </div>
-                            </div>
-
-                                <div class="mobile-margin-left-zero mobile-margin-bottom-45 col-lg-6 col-md-6 col-sm-6 col-xs-12  right" style="padding:0;min-height: 300px">
-                                    <div class="col-sm-12" id="P_UserOrderForm1186" style="padding:0">
-
-                                         <h4 class="modal-title" id="gridSystemModalLabel" style="font-size: 22px;font-weight: bold;color: #525252">{{ $product->title }}</h4>
-
-                                       <div class="col-xs-12 col-sm-6 col-md-6 " style="padding: 0px;">
-
-                                           <p style="margin: 20px 0;color: #525252;font-size: 25px">
-                                             Price :   <?php if($product->rprice > $product->sprice) { ?><del>$ {{ $product->rprice }}</del><?php } ?> <strong> $ {{ $product->sprice }} </strong></p>
-
-                                            @if($product->pcode)
-                                            <p style="font-size: 16px;background: #148AD2;color: #fff; display: inline-block;padding: 1px 8px;border-radius: 20px;">Product Code: {{ $product->pcode }}</p>
-                                            @endif
-                                          <input type="hidden" name="QtnLimitPerUserHiddenField" id="QtnLimitPerUserHiddenField" value="15">
-
-                                          <div class="col-xs-12 col-sm-12 col-md-12 deal-quantity" style="padding-left: 0px;margin-top: 10px">
-                                              <div id="Quantity">
-                                                  <span style="float: left;margin-top: 5px">Quantity : </span>
-
-                                                  <div style="float: left; border: solid 1px #24b193; width: 150px; height: 36px;margin-left:5px">
-                                                      <div style="color:orangered;font-size: 25px;text-align: center; width: 50px; float: left; cursor: pointer;font-weight: bold;" onclick="DecrementFunction();">
-                                                          -
-                                                      </div>
-
-                                                      <span style="font-size: 25px;text-align: center;color: gray; width: 50px; float: left; cursor: pointer;border-right: 1px solid #24b193;border-left: 1px solid #24b193;font-weight: bold;" id="quantity-value">1</span>
-
-                                                      <div onclick="IncrementFunction()" style="font-weight: bold;color:orangered;font-size: 25px;text-align: center; width: 40px; float: left;
-                                                           cursor: pointer;">
-                                                          +
-                                                      </div>
-
-                                                  </div>
-
-                                              </div>
-                                          </div>
-
-                                        </div>
-
-                                        <div class="col-xs-12 col-sm-6 col-md-6 " style="padding: 0px;margin-top: 30px;    margin-bottom: 30px;">
-
-                                            <div class="btn col-xs-12 col-sm-12 col-md-12" style="font-size: 21px;margin-bottom: 20px;background:#148AD2 ;color:#fff">
-                                                <input type="button"  onclick="buyNow({{ $product->id }})" value="Place Order" style="background: transparent;border: none;margin: 0;padding: 0">
-                                            </div>
-
-                                            <div class=" btn col-xs-12 col-sm-12 col-md-12" onclick="ProductAddTwoCart({{ $product->id }})" style="background:#4997A2;color:#fff;font-size: 21px;">
-                                               Add to Cart
-                                            </div>
-                                        </div>
-                                        {{--  --}}
-                                        {{-- <div class="col-sm-12 col-xs-12" style="padding:0">
-                                            @if($product->phone)
-                                              @php
-                                                $numbers = explode(',',$product->phone);
-                                                $total = count($numbers);
-                                              @endphp
-                                              <h4 style="font-weight:bold;color:#148AD2"><i class="fa fa-address-book"> </i> ফোনে অর্ডারের জন্য ডায়াল করুন</h4>
-                                                <div class="col-sm-6 col-xs-12" style="padding:0">
-                                                  <h4 style="font-size:25px;margin: 15px 0 15px 0;text-align:center;color:#148AD2;font-weight:900;text-align: left">
-                                                     @foreach($numbers as $number)
-                                                     <div class="col-sm-12 col-md-12  col-xs-12" style="padding: 0">
-                                                     <i class="fa fa-phone-square img-responsive pull-left mobile-icon" style="width: 60px;padding-left:15px;color: #4997A2;"><span style="padding-left:15px;color: black;">{{$number}}</span style=""></i>  <br>
-                                                     </div>
-                                                     @endforeach
-                                                 </h4>
-                                                </div>
-                                            @endif
-                                                <div class="col-sm-12 col-md-12  col-xs-12" style="padding: 0">
-                                                        <img style="width: 60px;padding: 10px" class="img-responsive pull-left mobile-icon" src="{{ asset('/') }}image/icon-prodducts/d.png" alt="Call azibto" title="Call azibto"><h3 class="font-size-title-mobile" style="font-weight: bold;font-size: 18px;text-align:left">   ঢাকায় ডেলিভারি খরচ: $ {{$basic->delivery_cost1}}</h3>
-                                                    </div>
-                                                    <div class="col-sm-12 col-md-12 col-xs-12" style="padding:0">
-                                                        <img style="width: 60px;padding: 10px" class="img-responsive pull-left  mobile-icon" src="{{ asset('/') }}image/icon-prodducts/od.png" alt="Call azibto" title="Call azibto"><h3 class="font-size-title-mobile" style="font-weight: bold;font-size: 18px;text-align:left">
-                                                            ঢাকার বাইরের ডেলিভারি খরচ: $ {{$basic->delivery_cost2}}
-                                                        </h3>
-                                                    </div>
-                                                    @if($product->bkash)
-                                                    <div class="col-sm-12 col-md-12 col-xs-12" style="padding:0">
-                                                        <img style="width: 60px;padding: 10px" class="img-responsive pull-left  mobile-icon" src="{{ asset('/') }}image/icon-prodducts/bk.png" alt="Call azibto" title="Azibto  "><h3 class="font-size-title-mobile" style="font-weight: bold;font-size: 18px;text-align:left">
-                                                            বিকাশ মার্চেন্ট নাম্বার: {{$product->bkash}}
-                                                        </h3>
-                                                    </div>
-                                                    @endif
-                                              </div> --}}
-
-                                        <div class="col-xs-12 col-sm-12 col-md-12 "><br></div>
-
-
-                                    </div>
-
-
-
-
-                                </div>
-
-
-                            </div>
-                        </div>
-
-
+<main>
+    <!-- breadcrumb__area-start -->
+    <section class="breadcrumb__area box-plr-75">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-12">
+                    <div class="breadcrumb__wrapper">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
-            <div class="panel panel-info">
-                <div class="panel-heading"><strong style="font-size: 22px;font-weight: bold;color: #525252"><i class="fa fa-bar-chart" style="color: #000"> </i> Product Description	</strong></div>
-                <div class="panel-body" style="padding-left: 30px;padding-right: 30px">
-                     <div class="row">
-                        <div class=" col-lg-12 col-sm-12 brand text-center" style="background-color: #fff;padding: 0">
+        </div>
+    </section>
+    <!-- breadcrumb__area-end -->
 
-                            <div id="my-tab-content" class="tab-content" style="padding-left: 0px;padding-right: 0px;">
-                                <!-- top category tab -->
-                                <div class="tab-pane active" id="course-detail1186">
-
-                                    <div class="tab-content panel-body" style="padding: 0">
-
-
-
-                                         <div class="tab-content panel-body" style="padding: 0">
-
-                                         <div id="ListStyle2" class="col-sm-12 text-left product-dynamic-details" style="padding: 0px;">
-                                            <div id="description" class="tab-pane active">
-                                            <div class="tabbox-container">
-                                                {!! $product->long_description !!}
-                                            </div>
-                                            </div>
-                                        </div>
+    <!-- product-details-start -->
+    <div class="product-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="product__details-nav d-sm-flex align-items-start">
+                        <ul class="nav nav-tabs flex-sm-column justify-content-between" id="productThumbTab"
+                            role="tablist">
 
 
+                                 {{--  --}}
+                            @if($product->img1)
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="thumbOne-tab" data-bs-toggle="tab"
+                                    data-bs-target="#thumbOne" type="button" role="tab" aria-controls="thumbOne"
+                                    aria-selected="true">
+                                    <img src="{{ asset('/') }}image/product_image/{{ $product->img1 }}" alt="{{ $product->title }}"  width="85px;" height="85px;">
+                                </button>
+                            </li>
+                            @endif
+                            {{--  --}}
+
+
+
+                          
+                            @if($product->img2)
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="thumbTwo-tab" data-bs-toggle="tab"
+                                    data-bs-target="#thumbTwo" type="button" role="tab" aria-controls="thumbTwo"
+                                    aria-selected="false">
+                                    <img src="{{ asset('/') }}image/product_image/{{ $product->img2 }}" alt="{{ $product->title }}" width="85px;" height="85px;">
+                                </button>
+                            </li>
+                            @endif
+
+
+                            @if($product->img3)
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="thumbThree-tab" data-bs-toggle="tab"
+                                    data-bs-target="#thumbThree" type="button" role="tab" aria-controls="thumbThree"
+                                    aria-selected="false">
+                                    <img src="{{ asset('/') }}image/product_image/{{ $product->img3 }}" alt="{{ $product->title }}" >
+                                </button>
+                            </li>
+                            @endif
+                        </ul>
+                     {{--  --}}
+                        <div class="product__details-thumb">
+                            <div class="tab-content" id="productThumbContent">
+                                <div class="tab-pane fade show active" id="thumbOne" role="tabpanel"
+                                    aria-labelledby="thumbOne-tab">
+                                    <div class="product__details-nav-thumb w-img">
+                                        <img src="{{ asset('/') }}image/product_image/{{ $product->img1 }}" alt="{{ $product->title }}">
                                     </div>
-
-
+                                </div>
+                                <div class="tab-pane fade" id="thumbTwo" role="tabpanel"
+                                    aria-labelledby="thumbTwo-tab">
+                                    <div class="product__details-nav-thumb w-img">
+                                        <img src="{{ asset('/') }}image/product_image/{{ $product->img2 }}" alt="{{ $product->title }}" >
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="thumbThree" role="tabpanel"
+                                    aria-labelledby="thumbThree-tab">
+                                    <div class="product__details-nav-thumb w-img">
+                                        <img src="{{ asset('/') }}image/product_image/{{ $product->img3 }}" alt="{{ $product->title }}" >
                                     </div>
                                 </div>
                             </div>
                         </div>
+                 {{--  --}}
 
+                    </div>
+                </div>
+
+
+                <div class="col-xl-6">
+                    <div class="product__details-content">
+                        <h6>{{ $product->title }}</h6>
+                        <div class="pd-rating mb-10">
+                            <ul class="rating">
+                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                            </ul>
+                            <span>(01 review)</span>
+                            <span><a href="#">Add your review</a></span>
+                        </div>
+                        <div class="price mb-10">
+                            <span>$216.00</span>
+                        </div>
+
+                        <div class="features-des mb-20 mt-10">
+                            <ul>
+                                <li><a href="product-details.html"><i class="fas fa-circle"></i> Bass and Stereo
+                                        Sound.</a></li>
+                                <li><a href="product-details.html"><i class="fas fa-circle"></i> Display with 3088 x
+                                        1440 pixels resolution.</a></li>
+                                <li><a href="product-details.html"><i class="fas fa-circle"></i> Memory, Storage
+                                        &amp; SIM: 12GB RAM, 256GB.</a></li>
+                                <li><a href="product-details.html"><i class="fas fa-circle"></i> Androi v10.0
+                                        Operating system.</a></li>
+                            </ul>
+                        </div>
+                        <div class="product-stock mb-20">
+                            <h5>Availability: <span> 940 in stock</span></h5>
+                        </div>
+                        <div class="cart-option mb-15">
+                            <div class="product-quantity mr-20">
+                                <div class="cart-plus-minus p-relative"><input type="text" value="1">
+                                    <div onclick="DecrementFunction();" class="dec qtybutton">-</div>
+                                    <div onclick="IncrementFunction()" class="inc qtybutton">+</div>
+                                </div>
+                            </div>
+                            <a  onclick="ProductAddTwoCart({{ $product->id }})"  class="cart-btn">Add to Cart</a>
+                            
+                        </div>
+                        <div class="btn col-md-6 mt-5" style="font-size: 21px;margin-bottom: 20px;background:#148AD2 ;color:#fff">
+                            <input type="button"  onclick="buyNow({{ $product->id }})" value="Place Order" style="background: transparent;border: none;margin: 0;padding: 0">
+                        </div>
+                        <div class="details-meta">
+                            <div class="d-meta-left">
+                                <div class="dm-item mr-20">
+                                    <a href="#"><i class="fal fa-heart"></i>Add to wishlist</a>
+                                </div>
+
+                            </div>
+                            <div class="d-meta-left">
+
+                 
+
+
+
+                                <div class="dm-item">
+                                    <a href="#"><i class="fal fa-share-alt"></i>Share</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-tag-area mt-15">
+                            <div class="product_info">
+                                <span class="sku_wrapper">
+                                    <span class="title">SKU:</span>
+                                    @if($product->pcode)
+                                    <span class="sku">{{ $product->pcode }}</span>
+                                    @endif
+                                </span>
+                                <span class="posted_in">
+                                    <span class="title">Categories:</span>
+                                    <a href="#">iPhone</a>
+                                    <a href="#">Tablets</a>
+                                </span>
+                                <span class="tagged_as">
+                                    <span class="title">Tags:</span>
+                                    <a href="#">Smartphone</a>,
+                                    <a href="#">Tablets</a>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            {{-- <div class="panel panel-info ">
-                <div class="panel-heading"><strong style="font-size: 22px;font-weight: bold;color: #525252"><i class="fa fa-bus" style="color: #000"> </i> ডেলিভারি এন্ড পেমেন্ট </strong></div>
-                <div class="panel-body mobile-padding-zero" style="padding-left: 30px;padding-right: 30px">
-                    <div class="col-sm-6">
-                        {!! $basic->inside_details !!}
-                    </div>
-                    <div class="col-sm-6">
-                        {!! $basic->outside_details !!}
-                    </div>
-                </div>
-            </div> --}}
-
-            <!--Similar Product-->
-            <div class="panel panel-info ">
-                <div class="panel-heading">
-
-                    <h4 class="modal-title" id="gridSystemModalLabel" style="font-size: 22px;font-weight: bold;color: #525252">
-                        <i class="fa fa-link" style="color: #000"> </i>
-                     Related Products
-                    </h4>
-
-                </div>
-                <div class="panel-body mobile-padding-zero">
-                <div class="col-lg-12 col-md-12 col-sm-12 " style="background: #fff;padding: 0px;margin-bottom: 20px; ;border: 3px solid #ECECEC;border-right:0;border-bottom:0">
-                    @foreach($related as $product)
-                     <div class="col-sm-2 col-xs-6  product-hover-area" style="padding: 0">
-                        <div class="col-sm-12 col-xs-12 padding-zero " style="background-color: #fff;padding: 0px;border-bottom: 3px solid #ECECEC;border-right: 3px solid #ECECEC;">
-                            <a style="padding: 0px;height: 180px;overflow: hidden;" class="img-hover col-sm-12 padding-zero" href="{{ url('/product') }}/{{ $product->id }}/{{ $product->slug }}" id="1354">
-                                <img class="img-responsive zoomEffect" style="margin: 0 auto;padding:5px; width: 100% !important; height:200.167px !important; margin-right: 15px;" src="{{asset('/')}}image/product_image/{{$product->img1}}" alt="{{$product->title}}">
-                            </a>
-                            <span id="productPrice1354" class="col-sm-12  col-xs-12 text-center" style="background: #fff;padding: 0;display: block;line-height:18px;color: #D2691E;font-size: 14px;font-weight: bold;height: 38px">
-                                   @if($product->rprice > $product->sprice)
-                                    <del style="color:#b8b8b8;font-size:14px">${{ $product->rprice }}</del>
-                                   @endif
-                                   <br>
-                                   <label style="color:green;font-size: 20px;"> $ {{ $product->sprice }}</label>
-                            </span>
-                            <span id="productName1354" class="col-sm-12 text-center" style="background: #fff;padding: 2px;overflow: hidden;height: 38px;font-size: 12px;display: block;color:#525252;font-weight: bold;">
-                              {{$product->title}}
-                            </span>
-                          </div>
-                      </div>
-                      @endforeach
-                  </div>
-                </div>
-            </div>
-            <!--Similar Product End-->
         </div>
     </div>
-</div>
+    <!-- product-details-end -->
+
+    <!-- product-details-des-start -->
+    <div class="product-details-des mt-40 mb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="product__details-des-tab">
+                        <ul class="nav nav-tabs" id="productDesTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="des-tab" data-bs-toggle="tab"
+                                    data-bs-target="#des" type="button" role="tab" aria-controls="des"
+                                    aria-selected="true">Description </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="aditional-tab" data-bs-toggle="tab"
+                                    data-bs-target="#aditional" type="button" role="tab" aria-controls="aditional"
+                                    aria-selected="false">Additional information</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="review-tab" data-bs-toggle="tab"
+                                    data-bs-target="#review" type="button" role="tab" aria-controls="review"
+                                    aria-selected="false">Reviews (1) </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="prodductDesTaContent">
+                <div class="tab-pane fade active show" id="des" role="tabpanel" aria-labelledby="des-tab">
+                    <div class="product__details-des-wrapper">
+                        <p class="des-text mb-35"> {!! $product->long_description !!}
+                        </p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="aditional" role="tabpanel" aria-labelledby="aditional-tab">
+                    <div class="product__desc-info">
+                        <ul>
+                            <li>
+                                <h6>Weight</h6>
+                                <span>2 lbs</span>
+                            </li>
+                            <li>
+                                <h6>Dimensions</h6>
+                                <span>12 × 16 × 19 in</span>
+                            </li>
+                            <li>
+                                <h6>Product</h6>
+                                <span>Purchase this product on rag-bone.com</span>
+                            </li>
+                            <li>
+                                <h6>Color</h6>
+                                <span>Gray, Black</span>
+                            </li>
+                            <li>
+                                <h6>Size</h6>
+                                <span>S, M, L, XL</span>
+                            </li>
+                            <li>
+                                <h6>Model</h6>
+                                <span>Model </span>
+                            </li>
+                            <li>
+                                <h6>Shipping</h6>
+                                <span>Standard shipping: $5,95</span>
+                            </li>
+                            <li>
+                                <h6>Care Info</h6>
+                                <span>Machine Wash up to 40ºC/86ºF Gentle Cycle</span>
+                            </li>
+                            <li>
+                                <h6>Brand</h6>
+                                <span>Kazen</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+                    <div class="product__details-review">
+                        <div class="row">
+                            <div class="col-xl-4">
+                                <div class="review-rate">
+                                    <h5>5.00</h5>
+                                    <div class="review-star">
+                                        <a href="#"><i class="fas fa-star"></i></a>
+                                        <a href="#"><i class="fas fa-star"></i></a>
+                                        <a href="#"><i class="fas fa-star"></i></a>
+                                        <a href="#"><i class="fas fa-star"></i></a>
+                                        <a href="#"><i class="fas fa-star"></i></a>
+                                    </div>
+                                    <span class="review-count">01 Review</span>
+                                </div>
+                            </div>
+                            <div class="col-xl-8">
+                                <div class="review-des-infod">
+                                    <h6>1 review for "<span>Wireless Bluetooth Over-Ear Headphones</span>"</h6>
+                                    <div class="review-details-des">
+                                        <div class="author-image mr-15">
+                                            <a href="#"><img src="assets/img/author/author-sm-1.jpeg" ></a>
+                                        </div>
+                                        <div class="review-details-content">
+                                            <div class="str-info">
+                                                <div class="review-star mr-15">
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                </div>
+                                                <div class="add-review-option">
+                                                    <a href="#">Add Review</a>
+                                                </div>
+                                            </div>
+                                            <div class="name-date mb-30">
+                                                <h6> admin – <span> May 27, 2021</span></h6>
+                                            </div>
+                                            <p>A light chair, easy to move around the dining table and about the
+                                                room. Duis aute irure dolor in reprehenderit in <br> voluptate velit
+                                                esse cillum dolore eu fugiat nulla pariatur.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="product__details-comment ">
+                                    <div class="comment-title mb-20">
+                                        <h3>Add a review</h3>
+                                        <p>Your email address will not be published. Required fields are marked *
+                                        </p>
+                                    </div>
+                                    <div class="comment-rating mb-20">
+                                        <span>Overall ratings</span>
+                                        <ul>
+                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="comment-input-box">
+                                        <form action="#">
+                                            <div class="row">
+                                                <div class="col-xxl-6 col-xl-6">
+                                                    <div class="comment-input">
+                                                        <input type="text" placeholder="Your Name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xxl-6 col-xl-6">
+                                                    <div class="comment-input">
+                                                        <input type="email" placeholder="Your Email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xxl-12">
+                                                    <textarea placeholder="Your review"
+                                                        class="comment-input comment-textarea"></textarea>
+                                                </div>
+                                                <div class="col-xxl-12">
+                                                    <div class="comment-agree d-flex align-items-center mb-25">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="flexCheckDefault">
+                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                                Save my name, email, and website in this browser for
+                                                                the next time I comment.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xxl-12">
+                                                    <div class="comment-submit">
+                                                        <button type="submit" class="cart-btn">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product-details-des-end -->
+
+    <!-- shop modal start -->
+    <div class="modal fade" id="productModalId" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered product__modal" role="document">
+            <div class="modal-content">
+                <div class="product__modal-wrapper p-relative">
+                    <div class="product__modal-close p-absolute">
+                        <button data-bs-dismiss="modal"><i class="fal fa-times"></i></button>
+                    </div>
+                    <div class="product__modal-inner">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="product__modal-box">
+                                    <div class="tab-content" id="modalTabContent">
+                                        <div class="tab-pane fade show active" id="nav1" role="tabpanel"
+                                            aria-labelledby="nav1-tab">
+                                            <div class="product__modal-img w-img">
+                                                <img src="assets/img/quick-view/quick-view-1.jpg" >
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav2" role="tabpanel"
+                                            aria-labelledby="nav2-tab">
+                                            <div class="product__modal-img w-img">
+                                                <img src="assets/img/quick-view/quick-view-2.jpg" >
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav3" role="tabpanel"
+                                            aria-labelledby="nav3-tab">
+                                            <div class="product__modal-img w-img">
+                                                <img src="assets/img/quick-view/quick-view-3.jpg" >
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav4" role="tabpanel"
+                                            aria-labelledby="nav4-tab">
+                                            <div class="product__modal-img w-img">
+                                                <img src="assets/img/quick-view/quick-view-4.jpg" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="nav nav-tabs" id="modalTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="nav1-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav1" type="button" role="tab" aria-controls="nav1"
+                                                aria-selected="true">
+                                                <img src="assets/img/quick-view/quick-nav-1.jpg" >
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="nav2-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav2" type="button" role="tab" aria-controls="nav2"
+                                                aria-selected="false">
+                                                <img src="assets/img/quick-view/quick-nav-2.jpg" >
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="nav3-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav3" type="button" role="tab" aria-controls="nav3"
+                                                aria-selected="false">
+                                                <img src="assets/img/quick-view/quick-nav-3.jpg" >
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="nav4-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav4" type="button" role="tab" aria-controls="nav4"
+                                                aria-selected="false">
+                                                <img src="assets/img/quick-view/quick-nav-4.jpg" >
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="product__modal-content">
+                                    <h4><a href="product-details.html">Samsung C49J89: £875, Debenhams Plus</a></h4>
+                                    <div class="product__review d-sm-flex">
+                                        <div class="rating rating__shop mb-10 mr-30">
+                                            <ul>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__add-review mb-15">
+                                            <span>01 review</span>
+                                        </div>
+                                    </div>
+                                    <div class="product__price">
+                                        <span>$109.00 – $307.00</span>
+                                    </div>
+                                    <div class="product__modal-des mt-20 mb-15">
+                                        <ul>
+                                            <li><a href="#"><i class="fas fa-circle"></i> Bass and Stereo Sound.</a>
+                                            </li>
+                                            <li><a href="#"><i class="fas fa-circle"></i> Display with 3088 x 1440
+                                                    pixels resolution.</a></li>
+                                            <li><a href="#"><i class="fas fa-circle"></i> Memory, Storage & SIM:
+                                                    12GB RAM, 256GB.</a></li>
+                                            <li><a href="#"><i class="fas fa-circle"></i> Androi v10.0 Operating
+                                                    system.</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__stock mb-20">
+                                        <span class="mr-10">Availability :</span>
+                                        <span>1795 in stock</span>
+                                    </div>
+                                    <div class="product__modal-form">
+                                        <form action="#">
+                                            <div class="pro-quan-area d-lg-flex align-items-center">
+                                                <div class="product-quantity mr-20 mb-25">
+                                                    <div class="cart-plus-minus p-relative"><input type="text"
+                                                            value="1" /></div>
+                                                </div>
+                                                <div class="pro-cart-btn mb-25">
+                                                    <button class="cart-btn" type="submit">Add to cart</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="product__stock mb-30">
+                                        <ul>
+                                            <li><a href="#">
+                                                    <span class="sku mr-10">SKU:</span>
+                                                    <span>Samsung C49J89: £875, Debenhams Plus</span></a>
+                                            </li>
+                                            <li><a href="#">
+                                                    <span class="cat mr-10">Categories:</span>
+                                                    <span>iPhone, Tablets</span></a>
+                                            </li>
+                                            <li><a href="#">
+                                                    <span class="tag mr-10">Tags:</span>
+                                                    <span>Smartphone, Tablets</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- shop modal end -->
+
+</main>
 
 
-<script src="{{ asset('/') }}slider-asset/js/jquery.min.js"></script>
-<script src="{{ asset('/') }}slider-asset/js/owl.carousel.min2.js"></script>
+
+
+
+
+
+
+
+<script src="{{ asset('/') }}front_asset/new/js/vendor/jquery.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/vendor/waypoints.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/owl-carousel.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/bootstrap-bundle.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/meanmenu.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/swiper-bundle.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/tweenmax.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/magnific-popup.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/parallax.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/backtotop.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/nice-select.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/nice-select.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/countdown.min.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/counterup.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/wow.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/wow.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/isotope-pkgd.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/imagesloaded-pkgd.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/ajax-form.js"></script>
+<script src="{{ asset('/') }}front_asset/new/js/main.js"></script>
+
+
+
+    <!-- JS here -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{--  --}}
+
+<section class="best_seller_product" style="background-color: #fff;padding-bottom: 10px" id="main_content_area">
+  
+
+
+
+
+
+
+
+
 
 <script>
     $(document).ready(function () {

@@ -76,10 +76,7 @@ class BackProductsController extends Controller
 
           request()->validate([
             'name' => 'required|min:3',
-            'img1' => 'required|image',
-            'img2' => 'image',
-            'img3' => 'image',
-            'img4' => 'image',
+            'img1' => 'required',
             'rprice' => 'numeric',
             'sprice' => 'required'
           ]);
@@ -154,6 +151,7 @@ class BackProductsController extends Controller
           if($request->has('hot')){
             $hotdeal = new Hotdeal();
             $hotdeal->product_id = $product_id;
+            $hotdeal->name = $product->title;
             $hotdeal->sts = 1;
 
             $hotdeal->save();
@@ -234,10 +232,7 @@ class BackProductsController extends Controller
 
         request()->validate([
           'name' => 'required|min:3',
-          'img1' => 'image',
-          'img2' => 'image',
-          'img3' => 'image',
-          'img4' => 'image',
+
           'rprice' => 'numeric',
           'sprice' => 'required'
         ]);

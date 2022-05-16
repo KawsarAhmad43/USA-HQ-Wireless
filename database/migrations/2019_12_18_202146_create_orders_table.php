@@ -18,7 +18,22 @@ class CreateOrdersTable extends Migration
             $table->string('order_date')->nullable();
             $table->string('tracking_no')->nullable();
             $table->string('customer_name')->nullable();
-            $table->string('customer_phone')->nullable();
+
+
+            $table->string('company')->nullable();
+            $table->string('strline')->nullable();
+            $table->string('addoptional')->nullable();
+            $table->string('city')->nullable();
+            $table->string('postcode')->nullable();
+            $table->string('state')->nullable();
+            $table->string('country')->nullable();
+            $table->string('paymeth')->nullable();
+
+
+
+
+            $table->string('customer_phone');
+            $table->string('lname')->nullable();
             $table->string('customer_email')->nullable();
             $table->string('customer_area')->nullable();
             $table->string('subtotal_cost')->nullable();

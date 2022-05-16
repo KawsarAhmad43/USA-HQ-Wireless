@@ -85,7 +85,7 @@
                           </tr>
                           <tr>
                               <td style="padding:10px !important;text-align:left;font-size:16px;font-weight:bold"> Payment Method</td>
-                              <td style="padding:10px !important;text-align:left;font-size:16px;font-weight:bold"> Cash On Delivery </td>
+                              <td style="padding:10px !important;text-align:left;font-size:16px;font-weight:bold"> Online Payment </td>
                           </tr>
                           <tr>
                               <td colspan="2"> <a href="{{ url('admin/orders/'.$order_details->id) }}" style="width:100%;padding:10px 0 !important;text-align:center;font-size:16px;font-weight:bold;background:#4990DC;color: #fff;display: block;text-decoration: none;" target="_blank">Click here to Accept Order</a></td>

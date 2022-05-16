@@ -13,7 +13,7 @@ class BasicTableSeeder extends Seeder
     public function run()
     {
         DB::table('basics')->insert([
-            'name' => 'Phone Caseus',
+            'name' => 'USA UQ Wireless',
             'contact_no'=> '',
             'phone'=> '',
             'logo'=> '',
@@ -22,8 +22,8 @@ class BasicTableSeeder extends Seeder
             'delivery_cost2'=> '60',
             'inside_details' => 'demo',
             'outside_details' =>'demo',
-            'header_code'=>'Phone Caseus',
-            'footer_code'=>'copyrightⒸPhone Caseus',
+            'header_code'=>'USA UQ Wireless',
+            'footer_code'=>'copyrightⒸUSA UQ Wireless',
             
         ]);
         

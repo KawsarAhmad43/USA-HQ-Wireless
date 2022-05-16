@@ -1,0 +1,167 @@
+@extends('back-end.admin')
+
+{{-- content section --}}
+@section('content')
+
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h2 class="card-title">Update Featured Card</h2>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form role="form" action="{{route('featuredupdate')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+
+                <input type="hidden" value="{{$feature->id}}" name="id">
+
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Featured Card Name</label>
+                        <input type="text" class="form-control 
+                        @error('name') is-invalid @enderror" name="name" value="{{ $feature->name }}"
+                            placeholder="Enter name">
+                    </div>
+                    @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+
+
+                    <div class="form-group">
+                        <img src="{{asset('content/featured')}}/{{ $feature->image }}" alt="{{ $feature->name }}"
+                            id="preview" height="150px" width="150px">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Upload Image</label>
+                        <div class="input-group">
+                            <div class="custom-file @error('image') is-invalid @enderror">
+                                <input type="file" name="image" class="custom-file-input" id="imageUpload">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                    @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+
+                    <div class="form-group">
+                        <label>Category Link</label>
+                        <input type="text" class="form-control 
+                        @error('category_link') is-invalid @enderror" name="category_link" value="{{ $feature->category_link }}"
+                            placeholder="Enter the link">
+                    </div>
+                    @error('category_link')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+
+
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--/.col (left) -->
+
+
+
+
+    <!-- right column -->
+    <div class="col-md-6">
+
+        <div class="card primary">
+            <div class="card-header">
+                <h3 class="card-title">Featured card List</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th style="width: 80px">Image</th>
+                            <th>Name</th>
+                            <th>Link</th>
+
+
+                            <th style="width: 40px">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                        $serial=$featured->perPage() * ($featured->currentPage() - 1)+1;
+                        @endphp
+                        @forelse($featured as $feature)
+                        <tr>
+                            <td>{{$serial}}</td>
+                            <td>
+                                <img src="{{asset('back-end/content/featured')}}/{{ $feature->image }}"
+                                    alt="{{ $feature->name }}">
+                            </td>
+                            <td>{{ $feature->name}}</td>
+
+
+
+                            <td>
+                                <a href="{{route('featurededit',$feature->id)}}"
+                                    class="btn btn-sm btn-warning">edit</a>
+                                <a href="{{route('featureddestroy',$feature->id)}}"
+                                    class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+
+                        @empty
+
+                        @endforelse
+
+                        @php
+                        $serial++;
+                        @endphp
+
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- pagination-->
+            {{-- <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                    {!! $feature->links() !!}
+                </ul>
+            </div> --}}
+        </div>
+        <!-- /.pagination -->
+        <!-- /.card-body -->
+    </div>
+
+</div>
+
+
+<!--/.col (right) -->
+</div>
+
+@endsection
+
+@section('js')
+
+<script>
+    imageUpload.onchange = evt => {
+        const [file] = imageUpload.files
+        if (file) {
+            preview.src = URL.createObjectURL(file)
+            preview.style.height = '150px';
+            preview.style.width = '150px';
+        }
+    }
+</script>
+
+@endsection

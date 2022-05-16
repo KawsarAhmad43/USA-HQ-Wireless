@@ -43,7 +43,7 @@ class BackSlidersController extends Controller
       if(Auth::check()){
         request()->validate([
           'title' => 'min:3',
-          'slider' => 'required|image'
+          'slider' => 'required'
         ]);
 
         $folder = "image/banner/";

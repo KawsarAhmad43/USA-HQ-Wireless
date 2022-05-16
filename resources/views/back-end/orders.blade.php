@@ -27,6 +27,7 @@ Orders
                         <th>Phone</th>
                         <th>Address</th>
                         <th>Delivery Cost</th>
+                        <th>Payment Method</th>
                         <th>Total Amount</th>
                         <th>Status</th>
                         <th>Delivery Status</th>
@@ -42,6 +43,7 @@ Orders
                         <th>Phone</th>
                         <th>Address</th>
                         <th>Delivery Cost</th>
+                        <th>Payment Method</th>
                         <th>Total Amount</th>
                         <th>Status</th>
                         <th>Delivery Status</th>
@@ -130,6 +132,10 @@ $("#orders").DataTable({
     {
       data: 'deliver_cost',
       name: 'deliver_cost'
+    },
+    {
+      data: 'paymeth',
+      name: 'paymeth'
     },
     {
       data: 'total_cost',
